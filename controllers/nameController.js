@@ -8,11 +8,11 @@ class NameController {
         res.send(this.names);
     };
 
+//  request tiene un header 'token' con el valor 'r2d2'
 
     addName (req, res) {
-        const { body } = req;
-
-        if (body.name) {  
+        const { body , headers } = req;
+        if (body.name && headers.token == "r2d2") {  
             this.names.push(body.name);
             console.log(this.names);
             res.status(200).send("Nombre agregado con exito");
