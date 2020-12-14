@@ -7,7 +7,23 @@ const NameInstance = new NameController();
 (al principio va a devolver un array vacio)*/
 
 router.get('/', function(req, res, next) {
-  NameInstance.setArray(req, res)
+  NameInstance.getArray(req, res)
 });
+
+router.post('/add', function(req, res, next) {
+  NameInstance.addName(req, res)
+});
+
+router.put('/modify/:index', function (req, res, next) {
+   
+  NameInstance.modifyName(req, res)
+});
+
+router.delete('/delete/:index', function (req, res, next) {
+  NameInstance.deleteName(req, res)
+})
+
+
+
 
 module.exports = router;
